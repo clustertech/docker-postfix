@@ -1,10 +1,7 @@
 #!/bin/bash
 
-if [[ ! -z $LOG_SOCKET ]]; then
-  ln -s $LOG_SOCKET /dev/log
-fi
-
 trap "postfix stop" SIGTERM
+rsyslogd
 newaliases
 postfix check
 /usr/libexec/postfix/master -d &
