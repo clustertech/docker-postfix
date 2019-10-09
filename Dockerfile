@@ -1,6 +1,6 @@
 FROM centos:7
 ENV container docker
-RUN yum install -y postfix cyrus-sasl-plain rsyslog; \
+RUN yum install -y postfix cyrus-sasl-plain; \
 yum clean all; \
 postconf inet_protocols=ipv4
 COPY . /
