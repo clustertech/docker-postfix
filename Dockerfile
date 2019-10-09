@@ -6,4 +6,4 @@ postconf inet_protocols=ipv4
 COPY . /
 VOLUME [ "/var/spool/postfix" ]
 EXPOSE 25 465 587
-CMD /startpostfix.sh
+ENTRYPOINT ["/startpostfix.sh"]
