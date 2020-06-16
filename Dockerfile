@@ -5,7 +5,9 @@ chmod 755 /tini
 RUN yum -y update; \
 yum install -y postfix cyrus-sasl-plain rsyslog; \
 yum clean all; \
-postconf inet_protocols=ipv4
+postconf inet_protocols=ipv4; \
+mv /etc/aliases /etc/postfix/aliases; \
+ln -s /etc/postfix/aliases /etc/aliases
 COPY . /
 VOLUME [ "/var/spool/postfix" ]
 EXPOSE 25 465 587
